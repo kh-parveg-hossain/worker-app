@@ -3,12 +3,11 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
-import dotenv from 'dotenv';
-dotenv.config();
+const API_URL = import.meta.env.VITE_APP_URL;
 const fetchWorker = (workerId) => {
     console.log("Fetching worker data...");     
   return axios
-    .get(`${process.env.APP_URL}/worker/${workerId}`, { withCredentials: true })
+    .get(`${API_URL}/worker/${workerId}`, { withCredentials: true })
     .then((res) => {
       console.log("Worker data fetched:", res.data);
       return res.data;

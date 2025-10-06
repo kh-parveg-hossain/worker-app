@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import dotenv from 'dotenv';
-dotenv.config();
+const API_URL = import.meta.env.VITE_APP_URL;
 const fetchWorkers = () => {
-  return axios.get(`${process.env.APP_URL}/List-Services`)
+  return axios.get(`${API_URL}/List-Services`)
     .then(res => res.data);
 }
 

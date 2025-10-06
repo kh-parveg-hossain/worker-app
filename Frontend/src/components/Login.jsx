@@ -3,8 +3,7 @@ import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import Modal from "./Modal";
 import Cookies from "js-cookie";
-import dotenv from 'dotenv';
-dotenv.config();
+const API_URL = import.meta.env.VITE_APP_URL;
 const Login = ({ isOpen, onClose, setToken }) => {
   const [form, setForm] = useState({ email: "", password: "" });
 
@@ -13,7 +12,7 @@ const Login = ({ isOpen, onClose, setToken }) => {
 
   const loginMutation = useMutation({
     mutationFn: (user) =>
-      axios.post(`${process.env.APP_URL}/login`, user, { withCredentials: true }),
+      axios.post(`${API_URL}/}/login`, user, { withCredentials: true }),
     onSuccess: (res) => {
       alert("Login successful!");
       setForm({ email: "", password: "" });

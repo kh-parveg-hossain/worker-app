@@ -6,7 +6,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-import Navbar from './components/Navbar.jsx'
+
 
 const queryClient = new QueryClient()
 
