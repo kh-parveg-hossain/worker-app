@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
-
+import dotenv from 'dotenv';
+dotenv.config();
 const fetchWorker = (workerId) => {
     console.log("Fetching worker data...");     
   return axios
-    .get(`http://localhost:3000/worker/${workerId}`, { withCredentials: true })
+    .get(`${process.env.APP_URL}/worker/${workerId}`, { withCredentials: true })
     .then((res) => {
       console.log("Worker data fetched:", res.data);
       return res.data;

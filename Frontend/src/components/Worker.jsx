@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
+import dotenv from 'dotenv';
+dotenv.config();
 const fetchWorkers = () => {
-  return axios.get("http://localhost:3000/List-Services")
+  return axios.get(`${process.env.APP_URL}/List-Services`)
     .then(res => res.data);
 }
 

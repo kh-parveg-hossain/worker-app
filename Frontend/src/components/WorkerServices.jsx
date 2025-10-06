@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import dotenv from 'dotenv';
+dotenv.config();
 const fetchWorkers = (serviceName) => {
   return axios
-    .get(`http://localhost:3000/List-Services/${serviceName}`)
+    .get(`${process.env.APP_URL}/List-Services/${serviceName}`)
     .then((res) => res.data.workers);
 };
 

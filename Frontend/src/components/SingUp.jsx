@@ -3,7 +3,8 @@ import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import Modal from "./Modal";
 import Cookies from "js-cookie";
-
+import dotenv from 'dotenv';
+dotenv.config();
 const SignUp = ({ isOpen, onClose, setToken }) => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
 
@@ -12,7 +13,7 @@ const SignUp = ({ isOpen, onClose, setToken }) => {
 
   const signupMutation = useMutation({
     mutationFn: (newUser) =>
-      axios.post("http://localhost:3000/signup", newUser, {
+      axios.post(`${process.env.APP_URL}/signup`, newUser, {
         withCredentials: true,
       }),
     onSuccess: (res) => {
