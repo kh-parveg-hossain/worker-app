@@ -7,11 +7,11 @@ const API_URL = import.meta.env.VITE_APP_URL;
 
 const fetchWorkers = async (serviceName) => {
   const res = await axios.get(`${API_URL}/List-Services/${serviceName}`);
-  const data = res.data;
+  const data = res.data?.workers || [];
 
   // Ensure we always return a valid array
-  if (data && Array.isArray(data.workers)) {
-    return data.workers;
+  if (data && Array.isArray(data)) {
+    return data;
   }
 
   console.warn("⚠️ Unexpected response format:", data);
