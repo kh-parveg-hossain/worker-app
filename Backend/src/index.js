@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 db();
 app.use(cors({
-  origin: [ "https://worker-app-uoly.onrender.com","http://localhost:5173"], // your React frontend URLs
+  origin: [ "https://worker-app-662a.vercel.app/","http://localhost:5173"], // your React frontend URLs
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true
 }));
